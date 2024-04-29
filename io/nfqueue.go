@@ -47,7 +47,7 @@ func generateNftRules(local, rst bool) (*nftTableSpec, error) {
 		}
 	} else {
 		table.Chains = []nftChainSpec{
-			{Chain: "PREROUTING", Header: "type filter hook prerouting priority mangle; policy accept;"},
+			{Chain: "FORWARD", Header: "type filter hook forward priority filter; policy accept;"},
 		}
 	}
 	for i := range table.Chains {
